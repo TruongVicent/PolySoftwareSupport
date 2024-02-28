@@ -4,25 +4,12 @@ return [
 
     'title' => 'Logga in',
 
-    'heading' => 'Logga in',
-
-    'actions' => [
-
-        'register' => [
-            'before' => 'eller',
-            'label' => 'skapa ett konto',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Glömt ditt lösenord?',
-        ],
-
-    ],
+    'heading' => 'Logga in på ditt konto',
 
     'form' => [
 
         'email' => [
-            'label' => 'Mejladress',
+            'label' => 'E-postadress',
         ],
 
         'password' => [
@@ -45,15 +32,14 @@ return [
 
     'messages' => [
 
-        'failed' => 'Inloggningsuppgifterna matchar inte våra register.',
+        'failed' => 'Inloggningen matchar inte våra uppgifter.',
 
     ],
 
     'notifications' => [
 
         'throttled' => [
-            'title' => 'För många inloggningsförsök',
-            'body' => 'Vänligen försök igen om :seconds sekunder.',
+            'title' => 'För många inloggningsförsök. Vänligen försök igen om :seconds sekunder.',
         ],
 
     ],

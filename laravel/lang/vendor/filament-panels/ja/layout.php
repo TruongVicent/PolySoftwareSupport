@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'サブスクリプションを管理',
-        ],
-
         'logout' => [
             'label' => 'ログアウト',
         ],
@@ -42,10 +38,6 @@ return [
 
             'light' => [
                 'label' => 'ライトモードに切り替える',
-            ],
-
-            'system' => [
-                'label' => 'システムテーマを有効にする',
             ],
 
         ],

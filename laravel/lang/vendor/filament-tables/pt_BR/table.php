@@ -2,12 +2,6 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Colunas',
-
-    ],
-
     'columns' => [
 
         'text' => [
@@ -24,10 +18,6 @@ return [
 
         'bulk_select_record' => [
             'label' => 'Marcar/desmarcar o item :key para ações em massa.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Marcar/desmarcar o grupo :title para ações em massa.',
         ],
 
         'search' => [
@@ -85,7 +75,7 @@ return [
         ],
 
         'open_bulk_actions' => [
-            'label' => 'Abrir ações',
+            'label' => 'Ações abertas',
         ],
 
         'toggle_columns' => [
@@ -98,7 +88,6 @@ return [
 
         'heading' => 'Sem registros',
 
-        'description' => 'Crie um :model para começar.',
     ],
 
     'filters' => [
@@ -119,8 +108,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Filtros',
 
         'indicator' => 'Filtros ativos',
 

@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => ':label 作成',
+    'title' => ':label作成',
 
     'breadcrumb' => '作成',
 

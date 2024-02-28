@@ -22,14 +22,6 @@ return [
 
     ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => '수정',
-        ],
-
-    ],
-
     'notifications' => [
 
         'saved' => [

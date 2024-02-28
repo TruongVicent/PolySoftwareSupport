@@ -10,6 +10,6 @@ return [
 
     ],
 
-    'welcome' => 'Üdvözlünk',
+    'welcome' => 'Üdv',
 
 ];

@@ -1,3 +1,4 @@
+
 <?php
 
 return [
@@ -6,16 +7,20 @@ return [
 
     'heading' => 'Crear una cuenta',
 
-    'actions' => [
+    'buttons' => [
 
         'login' => [
             'before' => 'o',
             'label' => 'iniciar sesión en su cuenta',
         ],
 
+        'register' => [
+            'label' => 'Registrarse',
+        ],
+
     ],
 
-    'form' => [
+    'fields' => [
 
         'email' => [
             'label' => 'Correo electrónico',
@@ -34,21 +39,12 @@ return [
             'label' => 'Confirmar contraseña',
         ],
 
-        'actions' => [
-
-            'register' => [
-                'label' => 'Registrarse',
-            ],
-
-        ],
-
     ],
 
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Demasiados intentos de registro',
-            'body' => 'Por favor, inténtelo de nuevo en :seconds segundos.',
+            'title' => 'Demasiados intentos de registro. Por favor, inténtelo de nuevo en :seconds segundos.',
         ],
 
     ],

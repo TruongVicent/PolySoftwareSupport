@@ -2,73 +2,19 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Colunas',
-
-    ],
-
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Mostrar menos :count',
-                'expand_list' => 'Mostrar mais :count',
-            ],
-
-            'more_list_items' => 'e mais :count',
-
+            'more_list_items' => 'e :count mais',
         ],
 
     ],
 
     'fields' => [
 
-        'bulk_select_page' => [
-            'label' => 'Marcar/desmarcar todos os itens para acções em massa.',
-        ],
-
-        'bulk_select_record' => [
-            'label' => 'Marcar/desmarcar o item :key para acções em massa.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Marcar/desmarcar o grupo :title para acções em massa.',
-        ],
-
         'search' => [
-            'label' => 'Pesquisar',
-            'placeholder' => 'Pesquisar',
-            'indicator' => 'Pesquisar',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'Resumo',
-
-        'subheadings' => [
-            'all' => 'Todos :label',
-            'group' => 'Resumo de :group',
-            'page' => 'Esta página',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Média',
-            ],
-
-            'count' => [
-                'label' => 'Contagem',
-            ],
-
-            'sum' => [
-                'label' => 'Soma',
-            ],
-
+            'label' => 'Procurar',
+            'placeholder' => 'Procurar',
         ],
 
     ],
@@ -87,25 +33,18 @@ return [
             'label' => 'Filtrar',
         ],
 
-        'group' => [
-            'label' => 'Agrupar',
-        ],
-
         'open_bulk_actions' => [
-            'label' => 'Acções em massa',
+            'label' => 'Ações abertas',
         ],
 
         'toggle_columns' => [
-            'label' => 'Activar colunas',
+            'label' => 'Alternar colunas',
         ],
 
     ],
 
     'empty' => [
-
-        'heading' => 'Sem :model',
-
-        'description' => 'Crie um(a) :model para começar.',
+        'heading' => 'Sem registos',
     ],
 
     'filters' => [
@@ -122,11 +61,14 @@ return [
             ],
 
             'reset' => [
-                'label' => 'Repôr',
+                'label' => 'Limpar filtros',
             ],
-        ],
 
-        'heading' => 'Filtros',
+            'close' => [
+                'label' => 'Fechar',
+            ],
+
+        ],
 
         'indicator' => 'Filtros ativos',
 
@@ -140,77 +82,32 @@ return [
 
         'trashed' => [
 
-            'label' => 'Registos eliminados',
+            'label' => 'Registos excluídos',
 
-            'only_trashed' => 'Apenas registos eliminados',
+            'only_trashed' => 'Somente registos excluídos',
 
-            'with_trashed' => 'Mostrar registos eliminados',
+            'with_trashed' => 'Mostrar registos excluídos',
 
-            'without_trashed' => 'Não mostrar registos eliminados',
+            'without_trashed' => 'Não mostrar registos excluídos',
 
         ],
 
     ],
 
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Agrupar por',
-                'placeholder' => 'Agrupar por',
-            ],
-
-            'direction' => [
-
-                'label' => 'Direcção de agrupamento',
-
-                'options' => [
-                    'asc' => 'Ascendente',
-                    'desc' => 'Descendente',
-                ],
-
-            ],
-
-        ],
-    ],
-
-    'reorder_indicator' => 'Arraste e solte os registos por ordem.',
+    'reorder_indicator' => 'Arraste e solte os registos na ordem.',
 
     'selection_indicator' => [
 
-        'selected_count' => '1 registo seleccionado|:count registos seleccionados',
+        'selected_count' => '1 registo selecionado|:count registos selecionados',
 
         'actions' => [
 
             'select_all' => [
-                'label' => 'Seleccionar todos os :count',
+                'label' => 'Selecionar todos :count',
             ],
 
             'deselect_all' => [
                 'label' => 'Desmarcar todos',
-            ],
-
-        ],
-
-    ],
-    'sorting' => [
-
-        'fields' => [
-
-            'column' => [
-                'label' => 'Ordenar por',
-            ],
-
-            'direction' => [
-
-                'label' => 'Direcção de ordenação',
-
-                'options' => [
-                    'asc' => 'Ascendente',
-                    'desc' => 'Descendente',
-                ],
-
             ],
 
         ],

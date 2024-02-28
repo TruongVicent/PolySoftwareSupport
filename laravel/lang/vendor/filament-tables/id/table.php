@@ -2,12 +2,6 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolom',
-
-    ],
-
     'columns' => [
 
         'text' => [
@@ -19,15 +13,11 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'Buat/batalkan pilihan semua item untuk tindakan massal.',
+            'label' => 'Buat/batalkan pilihan semua item untuk tindakan masal.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'Buat/batalkan pilihan item :key untuk tindakan massal.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Buat/batalkan pilihan grup :title untuk tindakan massal.',
+            'label' => 'Buat/batalkan pilihan item :key untuk tindakan masal.',
         ],
 
         'search' => [
@@ -97,8 +87,6 @@ return [
     'empty' => [
 
         'heading' => 'Tidak ada data yang ditemukan',
-
-        'description' => 'Buat :model untuk memulai.',
 
     ],
 

@@ -4,25 +4,12 @@ return [
 
     'title' => 'Bejelentkezés',
 
-    'heading' => 'Jelentkezz be a fiókodba',
-
-    'actions' => [
-
-        'register' => [
-            'before' => 'vagy',
-            'label' => 'regisztrálj egy fiókot',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Elfelejtetted a jelszavad?',
-        ],
-
-    ],
+    'heading' => 'Bejelentkezés a fiókba',
 
     'form' => [
 
         'email' => [
-            'label' => 'Email cím',
+            'label' => 'E-mail cím',
         ],
 
         'password' => [
@@ -45,15 +32,14 @@ return [
 
     'messages' => [
 
-        'failed' => 'Hibás email cím vagy jelszó.',
+        'failed' => 'Hibás e-mail cím vagy jelszó.',
 
     ],
 
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Túl sok bejelentkezési kísérlet',
-            'body' => 'Kérjük, próbáld meg újra :second másodperc múlva.',
+            'title' => 'Kérjük várjon :seconds másodpercet a következő próbálkozás előtt.',
         ],
 
     ],

@@ -4,7 +4,7 @@ return [
 
     'field' => [
         'label' => 'Globális keresés',
-        'placeholder' => 'Keresés',
+        'placeholder' => 'Keres',
     ],
 
     'no_results_message' => 'Nincs találat',
