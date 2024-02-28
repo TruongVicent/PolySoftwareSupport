@@ -2,12 +2,6 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolumny',
-
-    ],
-
     'columns' => [
 
         'text' => [
@@ -94,8 +88,6 @@ return [
 
         'heading' => 'Nie znaleziono rekordów',
 
-        'description' => 'Utwórz rekord aby rozpocząć.',
-
     ],
 
     'filters' => [
@@ -116,8 +108,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Filtry',
 
         'indicator' => 'Aktywne filtry',
 

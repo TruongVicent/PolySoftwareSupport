@@ -6,7 +6,7 @@ return [
 
     'heading' => 'Verifique su dirección de correo electrónico',
 
-    'actions' => [
+    'buttons' => [
 
         'resend_notification' => [
             'label' => 'Reenviar',
@@ -26,8 +26,7 @@ return [
         ],
 
         'notification_resend_throttled' => [
-            'title' => 'Demasiados intentos de reenvío',
-            'body' => 'Por favor, inténtelo de nuevo en :seconds segundos.',
+            'title' => 'Demasiados intentos de reenvío. Por favor, inténtelo de nuevo en :seconds segundos.',
         ],
 
     ],

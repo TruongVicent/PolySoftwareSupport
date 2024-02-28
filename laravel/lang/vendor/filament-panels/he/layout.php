@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'נהל מנוי',
-        ],
-
         'logout' => [
             'label' => 'התנתק',
         ],
@@ -22,18 +18,6 @@ return [
             'label' => 'תפריט משתמש',
         ],
 
-        'sidebar' => [
-
-            'collapse' => [
-                'label' => 'כווץ תפריט צד',
-            ],
-
-            'expand' => [
-                'label' => 'הרחב תפריט צד',
-            ],
-
-        ],
-
         'theme_switcher' => [
 
             'dark' => [
@@ -42,10 +26,6 @@ return [
 
             'light' => [
                 'label' => 'הפעל מצב מואר',
-            ],
-
-            'system' => [
-                'label' => 'הפעל ערכת נושא של המערכת',
             ],
 
         ],

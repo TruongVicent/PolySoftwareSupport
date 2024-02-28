@@ -2,16 +2,10 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Zutabeak',
-
-    ],
-
     'columns' => [
 
-        'text' => [
-            'more_list_items' => 'eta :count gehiago',
+        'tags' => [
+            'more' => 'eta :count gehiago',
         ],
 
     ],
@@ -19,45 +13,16 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'Aukeratu/deselektatu denak ekintza masiboetarako.',
+            'label' => 'Ekintza masiboetarako elementu guztiak hautatu/deshautatu.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'Aukeratu/deselektatu :key ekintza masiboetarako.',
+            'label' => 'Hautatu/deshautatu elementua :keyekintza masiboetarako.',
         ],
 
-        'search' => [
-            'label' => 'Bilatu',
+        'search_query' => [
+            'label' => 'Bilaketa',
             'placeholder' => 'Bilatu',
-            'indicator' => 'Bilatu',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'Laburpena',
-
-        'subheadings' => [
-            'all' => 'Guztiak :label',
-            'group' => ':group-aren laburpena',
-            'page' => 'Orrialde hau',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Batezbesteko',
-            ],
-
-            'count' => [
-                'label' => 'Zenbatekoa',
-            ],
-
-            'sum' => [
-                'label' => 'Baturak',
-            ],
-
         ],
 
     ],
@@ -65,7 +30,7 @@ return [
     'actions' => [
 
         'disable_reordering' => [
-            'label' => 'Erregistroen berrantolaketa amaitu',
+            'label' => 'Erregistroak berrantolatzen amaitu',
         ],
 
         'enable_reordering' => [
@@ -73,28 +38,22 @@ return [
         ],
 
         'filter' => [
-            'label' => 'Iragazkiak',
+            'label' => 'Filtratu',
         ],
 
-        'group' => [
-            'label' => 'Taldekatu',
-        ],
-
-        'open_bulk_actions' => [
-            'label' => 'Ireki ekintzak',
+        'open_actions' => [
+            'label' => 'Ekintzak ireki',
         ],
 
         'toggle_columns' => [
-            'label' => 'Zutabeak aldatu',
+            'label' => 'Zutabeak txandakatu',
         ],
 
     ],
 
     'empty' => [
 
-        'heading' => 'Erregistroak ez daude aurkitu',
-
-        'description' => 'Sortu :model bat hasteko.',
+        'heading' => 'Ez da erregistrorik aurkitu',
 
     ],
 
@@ -103,37 +62,35 @@ return [
         'actions' => [
 
             'remove' => [
-                'label' => 'Iragazkia kendu',
+                'label' => 'Kendu filtroak',
             ],
 
             'remove_all' => [
-                'label' => 'Iragazki guztiak kendu',
-                'tooltip' => 'Iragazki guztiak kendu',
+                'label' => 'Kendu filtro guztiak',
+                'tooltip' => 'Kendu filtro guztiak',
             ],
 
             'reset' => [
-                'label' => 'Berrezarri iragazkiak',
+                'label' => 'Filtroak berrabiarazi',
             ],
 
         ],
 
-        'heading' => 'Iragazkiak',
-
-        'indicator' => 'Iragazkiak aktiboak',
+        'indicator' => 'Aktibatutako filtroak',
 
         'multi_select' => [
-            'placeholder' => 'Guztiak',
+            'placeholder' => 'Denak',
         ],
 
         'select' => [
-            'placeholder' => 'Guztiak',
+            'placeholder' => 'Denak',
         ],
 
         'trashed' => [
 
             'label' => 'Ezabatutako erregistroak',
 
-            'only_trashed' => 'Bakarrik ezabatutako erregistroak',
+            'only_trashed' => 'Ezabatutako erregistroak bakarrik',
 
             'with_trashed' => 'Ezabatutako erregistroekin',
 
@@ -143,44 +100,20 @@ return [
 
     ],
 
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Taldekatu',
-                'placeholder' => 'Taldekatu',
-            ],
-
-            'direction' => [
-
-                'label' => 'Taldekatzearen norabidea',
-
-                'options' => [
-                    'asc' => 'Goranzkoa',
-                    'desc' => 'Beheranzkoa',
-                ],
-
-            ],
-
-        ],
-
-    ],
-
-    'reorder_indicator' => 'Erregistroak ordenan eraman ahal izateko arrastatu.',
+    'reorder_indicator' => 'Arrastatu erregistroak ordenan.',
 
     'selection_indicator' => [
 
-        'selected_count' => ':count erregistro aukeratu da|:count erregistro aukeratuak dira',
+        'selected_count' => 'Erregistro bat hautatu da|Hautatutako erregistroak: :count',
 
         'actions' => [
 
             'select_all' => [
-                'label' => 'Hautatu guztiak :count',
+                'label' => 'Hautatu denak :count',
             ],
 
             'deselect_all' => [
-                'label' => 'Aukeratu guztiak kentzea',
+                'label' => 'Deshautatu guztiak',
             ],
 
         ],
@@ -192,12 +125,12 @@ return [
         'fields' => [
 
             'column' => [
-                'label' => 'Ordenatu',
+                'label' => 'Honela ordenatu:',
             ],
 
             'direction' => [
 
-                'label' => 'Ordenaren norabidea',
+                'label' => 'Ordenaren helbidea',
 
                 'options' => [
                     'asc' => 'Goranzkoa',

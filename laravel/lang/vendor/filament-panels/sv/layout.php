@@ -6,16 +6,12 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Hantera prenumeration',
-        ],
-
         'logout' => [
             'label' => 'Logga ut',
         ],
 
         'open_database_notifications' => [
-            'label' => 'Öppna notiser',
+            'label' => 'Öppna aviseringar',
         ],
 
         'open_user_menu' => [
@@ -37,15 +33,11 @@ return [
         'theme_switcher' => [
 
             'dark' => [
-                'label' => 'Använd mörkt tema',
+                'label' => 'Växla till mörkt läge',
             ],
 
             'light' => [
-                'label' => 'Använd ljust tema',
-            ],
-
-            'system' => [
-                'label' => 'Följ systemets tema',
+                'label' => 'Växla till ljust läge',
             ],
 
         ],

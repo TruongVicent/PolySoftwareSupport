@@ -6,19 +6,6 @@ return [
 
     'heading' => 'התחבר לחשבון שלך',
 
-    'actions' => [
-
-        'register' => [
-            'before' => 'או',
-            'label' => 'הירשם לחשבון',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'שכחת את הסיסמה שלך?',
-        ],
-
-    ],
-
     'form' => [
 
         'email' => [
@@ -26,7 +13,7 @@ return [
         ],
 
         'password' => [
-            'label' => 'סיסמה',
+            'label' => 'סיסמא',
         ],
 
         'remember' => [
@@ -53,7 +40,6 @@ return [
 
         'throttled' => [
             'title' => 'יותר מידי ניסיונות התחברות. אנא נסה שוב מאוחר יותר.',
-            'body' => 'נסה שוב בעוד :seconds שניות.',
         ],
 
     ],

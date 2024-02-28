@@ -1,11 +1,7 @@
 <?php
 
 return [
-    'column_toggle' => [
 
-        'heading' => 'Стовпці',
-
-    ],
     'columns' => [
 
         'text' => [
@@ -15,51 +11,12 @@ return [
     ],
 
     'fields' => [
-        'bulk_select_page' => [
-            'label' => 'Обрати/зняти всі елементи для масових дій.',
-        ],
-
-        'bulk_select_record' => [
-            'label' => 'Обрати/зняти елемент :key для масових дій.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Обрати/зняти елемент групу :title для масових дій.',
-        ],
 
         'search' => [
             'label' => 'Пошук',
             'placeholder' => 'Пошук',
-            'indicator' => 'Пошук',
         ],
 
-    ],
-
-    'summary' => [
-
-        'heading' => 'Підсумок',
-
-        'subheadings' => [
-            'all' => 'Всі :label',
-            'group' => 'Підсумок :group ',
-            'page' => 'Ця сторінка',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Середнє',
-            ],
-
-            'count' => [
-                'label' => 'Кол.',
-            ],
-
-            'sum' => [
-                'label' => 'Сума',
-            ],
-
-        ],
     ],
 
     'actions' => [
@@ -75,9 +32,7 @@ return [
         'filter' => [
             'label' => 'Фільтр',
         ],
-        'group' => [
-            'label' => 'Групувати',
-        ],
+
         'open_bulk_actions' => [
             'label' => 'Відкрити дії',
         ],
@@ -89,10 +44,7 @@ return [
     ],
 
     'empty' => [
-
-        'heading' => 'Не знайдено :model',
-
-        'description' => 'Створити :model для початку.',
+        'heading' => 'Не знайдено записів',
     ],
 
     'filters' => [
@@ -109,12 +61,10 @@ return [
             ],
 
             'reset' => [
-                'label' => 'Скинути',
+                'label' => 'Скинути фільтри',
             ],
 
         ],
-
-        'heading' => 'Фільтри',
 
         'indicator' => 'Активні фільтри',
 
@@ -140,40 +90,16 @@ return [
 
     ],
 
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Групувати за',
-                'placeholder' => 'Групувати за',
-            ],
-
-            'direction' => [
-
-                'label' => 'Напрямок',
-
-                'options' => [
-                    'asc' => 'За зростанням',
-                    'desc' => 'За спаданням',
-                ],
-
-            ],
-
-        ],
-
-    ],
-
-    'reorder_indicator' => 'Перетягуйте елементи, щоб змінити порядок.',
+    'reorder_indicator' => 'Drag-n-drop порядок записів.',
 
     'selection_indicator' => [
 
-        'selected_count' => 'Обрано 1 запис|Обрано :count записів',
+        'selected_count' => 'Вибрано 1 запис|Вибрано :count записів',
 
         'actions' => [
 
             'select_all' => [
-                'label' => 'Обрати все :count',
+                'label' => 'Вибрати все :count',
             ],
 
             'deselect_all' => [
@@ -189,16 +115,16 @@ return [
         'fields' => [
 
             'column' => [
-                'label' => 'Сортувати за',
+                'label' => 'Сортування',
             ],
 
             'direction' => [
 
-                'label' => 'Напрямок',
+                'label' => 'Напрямок сортування',
 
                 'options' => [
                     'asc' => 'За зростанням',
-                    'desc' => 'За спаданням',
+                    'desc' => 'За зменшенням',
                 ],
 
             ],

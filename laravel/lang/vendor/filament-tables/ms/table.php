@@ -2,21 +2,9 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolum',
-
-    ],
-
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => 'Tunjukkan kurang :count',
-                'expand_list' => 'Tunjukkan :count lagi',
-            ],
-
             'more_list_items' => 'dan :count lagi',
         ],
 
@@ -30,10 +18,6 @@ return [
 
         'bulk_select_record' => [
             'label' => 'Pilih/nyahpilih item :key untuk tindakan pukal.',
-        ],
-
-        'bulk_select_group' => [
-            'label' => 'Pilih/nyahpilih kumpulan :title untuk tindakan pukal.',
         ],
 
         'search' => [
@@ -104,8 +88,6 @@ return [
 
         'heading' => 'Tiada rekod dijumpai',
 
-        'description' => 'Cipta :model untuk bermula.',
-
     ],
 
     'filters' => [
@@ -126,8 +108,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Penapis',
 
         'indicator' => 'Penapis aktif',
 

@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'دروستکردنی :label',
+    'title' => 'دروستکردن',
 
     'breadcrumb' => 'دروستکردن',
 
@@ -11,7 +11,7 @@ return [
         'actions' => [
 
             'cancel' => [
-                'label' => 'پاشگەزبوونەوە',
+                'label' => 'ڕەتکردنەوە',
             ],
 
             'create' => [
@@ -19,7 +19,7 @@ return [
             ],
 
             'create_another' => [
-                'label' => 'دروستکردن و تۆمارێکی تر',
+                'label' => 'دروستکردن و دانەیەکی تر',
             ],
 
         ],

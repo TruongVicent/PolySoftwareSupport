@@ -5,11 +5,11 @@ return [
     'actions' => [
 
         'open_documentation' => [
-            'label' => 'Documentation',
+            'label' => 'پەڕگەی یارماتیدەر',
         ],
 
         'open_github' => [
-            'label' => 'GitHub',
+            'label' => 'گیت هەب',
         ],
 
     ],

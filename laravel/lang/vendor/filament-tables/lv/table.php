@@ -2,12 +2,6 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Kolonnas',
-
-    ],
-
     'columns' => [
 
         'text' => [
@@ -19,49 +13,16 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'Atlasīt/noņemt atlasi no visiem ierakstiem, lai veiktu lielapjoma darbības.',
+            'label' => 'Atlasīt/noņemt atlasi visām lielapjoma darbībām.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'Atlasīt/noņemt atlasi no ierksta :key, lai veiktu lielapjoma darbības.',
+            'label' => 'Atlasīt/noņemt atlasi priekš :key lielapjoma darbībām.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Atlasīt/noņemt atlasi no grupas :title, lai veiktu lielapjoma darbības.',
-        ],
-
-        'search' => [
+        'search_query' => [
             'label' => 'Meklēt',
             'placeholder' => 'Meklēt',
-            'indicator' => 'Meklēt',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'Kopsavilkums',
-
-        'subheadings' => [
-            'all' => 'Visi :label',
-            'group' => ':group kopsavilkums',
-            'page' => 'Šī lapa',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Vidēji',
-            ],
-
-            'count' => [
-                'label' => 'Skaits',
-            ],
-
-            'sum' => [
-                'label' => 'Summa',
-            ],
-
         ],
 
     ],
@@ -80,12 +41,8 @@ return [
             'label' => 'Filtrēt',
         ],
 
-        'group' => [
-            'label' => 'Grupēt',
-        ],
-
-        'open_bulk_actions' => [
-            'label' => 'Lielapjoma darbības',
+        'open_actions' => [
+            'label' => 'Atvērt darbības',
         ],
 
         'toggle_columns' => [
@@ -95,11 +52,7 @@ return [
     ],
 
     'empty' => [
-
         'heading' => 'Nav atrasts neviens ieraksts',
-
-        'description' => 'Izveidot :model, lai sāktu.',
-
     ],
 
     'filters' => [
@@ -121,8 +74,6 @@ return [
 
         ],
 
-        'heading' => 'Filtri',
-
         'indicator' => 'Aktīvie filtri',
 
         'multi_select' => [
@@ -142,30 +93,6 @@ return [
             'with_trashed' => 'Kopā ar dzēstajiem ierakstiem',
 
             'without_trashed' => 'Bez dzēstajiem ierakstiem',
-
-        ],
-
-    ],
-
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Grupēt pēc',
-                'placeholder' => 'Grupēt pēc',
-            ],
-
-            'direction' => [
-
-                'label' => 'Grupēšanas virziens',
-
-                'options' => [
-                    'asc' => 'Augošs',
-                    'desc' => 'Dilstošs',
-                ],
-
-            ],
 
         ],
 

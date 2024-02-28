@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Správa předplatného',
-        ],
-
         'logout' => [
             'label' => 'Odhlásit se',
         ],
@@ -42,10 +38,6 @@ return [
 
             'light' => [
                 'label' => 'Zapnout světlý režim',
-            ],
-
-            'system' => [
-                'label' => 'Použít nastavení systému',
             ],
 
         ],

@@ -2,12 +2,6 @@
 
 return [
 
-    'column_toggle' => [
-
-        'heading' => 'Coloane',
-
-    ],
-
     'columns' => [
 
         'text' => [
@@ -18,46 +12,9 @@ return [
 
     'fields' => [
 
-        'bulk_select_page' => [
-            'label' => 'Selectați/Deselectați tot pentru operațiuni in masă.',
-        ],
-
-        'bulk_select_record' => [
-            'label' => 'Selectează/Deselectează elementul :key pentru operațiuni in masă.',
-        ],
-
         'search' => [
             'label' => 'Căutare',
             'placeholder' => 'Căutare',
-            'indicator' => 'Căutare',
-        ],
-
-    ],
-
-    'summary' => [
-
-        'heading' => 'Sumar',
-
-        'subheadings' => [
-            'all' => 'Toate :label',
-            'group' => 'Sumar :group',
-            'page' => 'Această pagină',
-        ],
-
-        'summarizers' => [
-
-            'average' => [
-                'label' => 'Medie',
-            ],
-
-            'count' => [
-                'label' => 'Numărare',
-            ],
-
-            'sum' => [
-                'label' => 'Suma',
-            ],
-
         ],
 
     ],
@@ -76,12 +33,8 @@ return [
             'label' => 'Filtru',
         ],
 
-        'group' => [
-            'label' => 'Grupare',
-        ],
-
         'open_bulk_actions' => [
-            'label' => 'Operațiuni in masă',
+            'label' => 'Desdere operațiuni',
         ],
 
         'toggle_columns' => [
@@ -91,11 +44,7 @@ return [
     ],
 
     'empty' => [
-
         'heading' => 'Nu s-au găsit rezultate',
-
-        'description' => 'Creează un :model pentru a începe.',
-
     ],
 
     'filters' => [
@@ -103,12 +52,12 @@ return [
         'actions' => [
 
             'remove' => [
-                'label' => 'Elimină filtru',
+                'label' => 'Ştergere filtru',
             ],
 
             'remove_all' => [
-                'label' => 'Elimină toate filtrele',
-                'tooltip' => 'Elimină toate filtrele',
+                'label' => 'Şterge toate filtrele',
+                'tooltip' => 'Ştergere toate filtrele',
             ],
 
             'reset' => [
@@ -116,8 +65,6 @@ return [
             ],
 
         ],
-
-        'heading' => 'Filtre',
 
         'indicator' => 'Filtre active',
 
@@ -135,7 +82,7 @@ return [
 
             'only_trashed' => 'Doar elementele șterse',
 
-            'with_trashed' => 'Include elementele șterse',
+            'with_trashed' => 'Elementele șterse inclusiv',
 
             'without_trashed' => 'Doar elementele neșterse',
 
@@ -143,31 +90,7 @@ return [
 
     ],
 
-    'grouping' => [
-
-        'fields' => [
-
-            'group' => [
-                'label' => 'Grupează după',
-                'placeholder' => 'Grupează după',
-            ],
-
-            'direction' => [
-
-                'label' => 'Direcție grupare',
-
-                'options' => [
-                    'asc' => 'Ascendentă',
-                    'desc' => 'Descendentă',
-                ],
-
-            ],
-
-        ],
-
-    ],
-
-    'reorder_indicator' => 'Trageți și plasați elementele în ordine.',
+    'reorder_indicator' => 'Trageți și plasați înregistrările în ordine.',
 
     'selection_indicator' => [
 

@@ -47,8 +47,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Muitas tentativas de cadastro',
-            'body' => 'Por favor, tente novamente em :seconds segundos.',
+            'title' => 'Muitas tentativas de cadastro. Por favor tente novamente em :seconds segundos.',
         ],
 
     ],
