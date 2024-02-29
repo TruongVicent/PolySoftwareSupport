@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\ProjectType;
+use Illuminate\Support\Facades\DB;
+
+
 class ProjectTypeSeeder extends Seeder
 {
     /**
@@ -54,5 +58,11 @@ class ProjectTypeSeeder extends Seeder
 
         // Thêm dữ liệu vào bảng project_types
         ProjectType::insert($projectTypes);
+        DB::table('project_types')->insert([
+            'name' => 'Web app',
+            'description' => 'Các web quản lý',
+            'status' => '1'
+        ]);
+
     }
 }
