@@ -3,20 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ClassSubjectResource\Pages;
-use App\Filament\Resources\ClassSubjectResource\RelationManagers;
 use App\Models\ClassSubject;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\DateTimePicker;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Forms\Components\Toggle;
 use App\Models\Semester;
 
@@ -75,7 +70,14 @@ class ClassSubjectResource extends Resource
                     ->label('Trạng thái'),
             ])
             ->filters([
-                //
+                SelectFilter::make('user_id')->label('Giáo viên')
+                    ->relationship('user', 'name'),
+                SelectFilter::make('class_r_id')->label('Lớp')
+                    ->relationship('classr', 'name'),
+                SelectFilter::make('subject_id')->label('Môn')
+                    ->relationship('subject', 'name'),
+                SelectFilter::make('semester_id')->label('Môn')
+                    ->relationship('semester', 'name'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
