@@ -34,7 +34,8 @@ class EventTypeResource extends Resource
                     ->required()
                     ->label('Loại sự kiện'),
                 Toggle::make('status')
-                    ->label('Trạng thái'),
+                    ->label('Trạng thái')
+                    ->inline(false),
             ]);
     }
 
@@ -43,7 +44,8 @@ class EventTypeResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Loại sự kiện'),
+                    ->label('Loại sự kiện')
+                    ->searchable(),
                 ToggleColumn::make('status')
                     ->label('Trạng thái'),
             ])

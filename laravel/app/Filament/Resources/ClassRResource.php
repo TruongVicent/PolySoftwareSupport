@@ -44,7 +44,8 @@ class ClassRResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Lớp'),
+                    ->label('Lớp')
+                    ->searchable(),
                 ToggleColumn::make('status')
                     ->label('Trạng thái'),
             ])

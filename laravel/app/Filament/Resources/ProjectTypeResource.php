@@ -8,6 +8,9 @@ use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\ImageEntry;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -23,6 +26,7 @@ class ProjectTypeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $label = 'Loại dự án';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -41,16 +45,30 @@ class ProjectTypeResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                TextEntry::make('id')
+                    ->label('ID'),
+                TextEntry::make('name')
+                    ->label('Tên loại dự án'),
+                TextEntry::make('description')
+                    ->label('Mô tả')
+                    ->columnSpanFull(),
+            ]);
+    }
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('id')
-                    ->label('ID'),
+                    ->label('ID')
+                    ->searchable(),
                 TextColumn::make('name')
-                    ->label('Tên loại dự án'),
-                TextColumn::make('description')
-                    ->label('Mô tả'),
+                    ->label('Tên loại dự án')
+                    ->searchable(),
                 ToggleColumn::make('status')
                     ->label('Trạng thái')
             ])
@@ -58,7 +76,9 @@ class ProjectTypeResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -78,8 +98,8 @@ class ProjectTypeResource extends Resource
     {
         return [
             'index' => Pages\ListProjectTypes::route('/'),
-            'create' => Pages\CreateProjectType::route('/create'),
-            'edit' => Pages\EditProjectType::route('/{record}/edit'),
+//            'create' => Pages\CreateProjectType::route('/create'),
+//            'edit' => Pages\EditProjectType::route('/{record}/edit'),
         ];
     }
 }

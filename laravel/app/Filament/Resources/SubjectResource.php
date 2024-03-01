@@ -32,13 +32,15 @@ class SubjectResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->required()
-                    ->label('Môn'),
+                    ->label('Môn')
+                    ->maxLength(70),
                 TextInput::make('credits')
                     ->required()
                     ->numeric()
                     ->label('Số tín chỉ'),
                 TextInput::make('description')
-                    ->label('Mô tả'),
+                    ->label('Mô tả')
+                    ->required(),
                 TextInput::make('link_document')
                     ->required()
                     ->prefix('https://')
@@ -53,11 +55,11 @@ class SubjectResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Môn'),
+                    ->label('Môn')
+                    ->searchable(),
                 TextColumn::make('credits')
-                    ->label('Số tín chỉ'),
-                TextColumn::make('description')
-                    ->label('Mô tả'),
+                    ->label('Số tín chỉ')
+                    ->searchable(),
                 TextColumn::make('link_document')
                     ->label('Link tài liệu'),
                 ToggleColumn::make('status')

@@ -42,10 +42,10 @@ class LinkResource extends Resource
                     ->label('Tên liên kết')
                     ->required(),
                 TextInput::make('url')
-                    ->url()
                     ->required()
+                    ->url()
                     ->filled()
-                    ->suffixIcon('heroicon-m-globe-alt')
+                    ->prefix('https://')
                     ->label('Link liên kết'),
                 Select::make('semester_id')
                     ->label('Học kì')
@@ -61,7 +61,8 @@ class LinkResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Tên liên kết'),
+                    ->label('Tên liên kết')
+                    ->searchable(),
                 TextColumn::make('url')
                     ->label('Link liên kết'),
                 TextColumn::make('semester.name')
@@ -105,8 +106,8 @@ class LinkResource extends Resource
         return [
             'index' => Pages\ListLinks::route('/'),
             'create' => Pages\CreateLink::route('/create'),
-            'view' => Pages\ViewLink::route('/{record}'),
-            'edit' => Pages\EditLink::route('/{record}/edit'),
+//            'view' => Pages\ViewLink::route('/{record}'),
+//            'edit' => Pages\EditLink::route('/{record}/edit'),
         ];
     }
 }
