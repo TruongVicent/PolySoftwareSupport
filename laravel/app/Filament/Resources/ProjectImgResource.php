@@ -36,6 +36,7 @@ class ProjectImgResource extends Resource
                     ->label('Hình ảnh')
                     ->image()
                     ->imageEditor()
+                    ->required()
                     ->columnSpan(2),
                 TextInput::make('name')
                     ->label('Tên ảnh')
@@ -48,7 +49,8 @@ class ProjectImgResource extends Resource
                     ->required()
                     ->filled(),
                 Toggle::make('status')
-                    ->label('Trạng thái'),
+                    ->label('Trạng thái')
+                    ->inline(false),
             ]);
     }
 
@@ -57,9 +59,11 @@ class ProjectImgResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')
-                    ->label('ID'),
+                    ->label('ID')
+                    ->searchable(),
                 TextColumn::make('name')
-                    ->label('Tên ảnh'),
+                    ->label('Tên ảnh')
+                    ->searchable(),
                 ImageColumn::make('image')
                     ->label('Hình ảnh'),
                 TextColumn::make('date')
@@ -105,6 +109,7 @@ class ProjectImgResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
