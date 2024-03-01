@@ -34,7 +34,8 @@ class ClassRResource extends Resource
                     ->required()
                     ->label('Tên lớp'),
                 Toggle::make('status')
-                    ->label('Trạng thái'),
+                    ->label('Trạng thái')
+                    ->inline(false),
             ]);
     }
 
