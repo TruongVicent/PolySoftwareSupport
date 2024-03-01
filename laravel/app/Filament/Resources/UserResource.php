@@ -39,7 +39,7 @@ class UserResource extends Resource
                     ->required()
                     ->regex('/^.+@.+$/i')
                     ->email()
-                    ->unique()
+                    ->unique(ignoreRecord: true)
                     ->validationMessages([
                         'unique' => 'Tài khoản đã được đăng kí.',
                     ]),
@@ -55,7 +55,11 @@ class UserResource extends Resource
                     ->label('Password')
                     ->dehydrateStateUsing(fn($state) => Hash::make($state))
                     ->minLength(6)
-                    ->maxLength(16),
+                    ->maxLength(16)
+                    ->password()
+                    ->filled()
+                    ->unique(ignoreRecord: true)
+                    ->autocomplete('new-password'),
                 Toggle::make('status')
                     ->label('Trạng thái'),
             ]);
@@ -67,13 +71,15 @@ class UserResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->icon('heroicon-m-user-circle')
-                    ->label('Tên tài khoản'),
+                    ->label('Tên tài khoản')
+                    ->searchable(),
                 TextColumn::make('email')
                     ->icon('heroicon-m-envelope')
                     ->label('Email'),
                 TextColumn::make('code')
                     ->badge()
-                    ->label('Mã nhân viên'),
+                    ->label('Mã nhân viên')
+                    ->searchable(),
                 ToggleColumn::make('status')
                     ->label('Trạng thái'),
             ])
