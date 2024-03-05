@@ -1,0 +1,63 @@
+
+footer {
+    background-color: #13203a;
+    padding: 20px 0;
+    border-top: 10px solid #ff9900;
+}
+
+.column {
+    text-align: center;
+}
+
+.logo {
+    width: 200px;
+}
+
+.icon {
+    width: 25px;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.contact-info {
+    font-size: 16px;
+    margin-top: 10px;
+
+}
+
+.contact-info-heading {
+    font-size: 20px;
+    color: chocolate;
+    margin-top: 30px;
+
+}
+
+.contact-info-details {
+    font-size: 12px;
+    color: white;
+}
+
+.office-info {
+    font-size: 16px;
+    margin-top: 10px;
+    color: white;
+    text-align: left;
+}
+
+.office-info-heading {
+    font-size: 20px;
+    color: chocolate;
+    font-weight: bold;
+}
+
+.office-info-details {
+    font-size: 12px;
+}
+
+.office-info-details-1 {
+    font-size: 15px;
+}
+
+.office-info-details-2 {
+    margin-top: 50px;
+}
