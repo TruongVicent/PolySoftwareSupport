@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Administrar suscripción',
-        ],
-
         'logout' => [
             'label' => 'Salir',
         ],
@@ -42,10 +38,6 @@ return [
 
             'light' => [
                 'label' => 'A modo claro',
-            ],
-
-            'system' => [
-                'label' => 'A modo del sistema',
             ],
 
         ],

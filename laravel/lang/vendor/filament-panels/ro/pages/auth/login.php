@@ -4,20 +4,7 @@ return [
 
     'title' => 'Autentificare',
 
-    'heading' => 'Loghează-te în contul tau',
-
-    'actions' => [
-
-        'register' => [
-            'before' => 'sau',
-            'label' => 'creează cont',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Ai uitat parola?',
-        ],
-
-    ],
+    'heading' => 'Logheaza-te în contul tau',
 
     'form' => [
 
@@ -53,7 +40,6 @@ return [
 
         'throttled' => [
             'title' => 'Te rugăm să aștepți :seconds secunde înainte de a încerca din nou',
-            'body' => 'Te rugăm sa reîncerci in :seconds secunde.',
         ],
 
     ],

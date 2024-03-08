@@ -2,27 +2,14 @@
 
 return [
 
-    'title' => 'Accesso',
+    'title' => 'Login',
 
-    'heading' => 'Accedi',
-
-    'actions' => [
-
-        'register' => [
-            'before' => 'o',
-            'label' => 'crea un account',
-        ],
-
-        'request_password_reset' => [
-            'label' => 'Hai smarrito la password?',
-        ],
-
-    ],
+    'heading' => 'Accedi al tuo account',
 
     'form' => [
 
         'email' => [
-            'label' => 'Email',
+            'label' => 'Indirizzo Email',
         ],
 
         'password' => [
@@ -45,15 +32,14 @@ return [
 
     'messages' => [
 
-        'failed' => 'I dati di accesso non sono corretti.',
+        'failed' => 'I tuoi dati di accesso non sono corretti.',
 
     ],
 
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Troppi tentativi di accesso',
-            'body' => 'Riprova tra :seconds secondi.',
+            'title' => 'Troppi tentativi di accesso. Riprova tra :seconds secondi.',
         ],
 
     ],

@@ -52,8 +52,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Za dużo nieudanych prób logowania',
-            'body' => 'Spróbuj ponownie za :seconds sekund.',
+            'title' => 'Za dużo nieudanych prób logowania. Proszę spróbować za :seconds sekund.',
         ],
 
     ],

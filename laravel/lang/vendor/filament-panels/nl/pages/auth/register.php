@@ -47,8 +47,7 @@ return [
     'notifications' => [
 
         'throttled' => [
-            'title' => 'Te veel registratiepogingen',
-            'body' => 'Probeer het opnieuw over :seconds seconden.',
+            'title' => 'Te veel pogingen. Probeer het opnieuw over :seconds seconden.',
         ],
 
     ],

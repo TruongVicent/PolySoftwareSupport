@@ -11,12 +11,6 @@ return [
     'columns' => [
 
         'text' => [
-
-            'actions' => [
-                'collapse_list' => ':count minder tonen',
-                'expand_list' => ':count meer tonen',
-            ],
-
             'more_list_items' => 'en :count meer',
         ],
 
@@ -32,14 +26,9 @@ return [
             'label' => 'Item :key selecteren/deselecteren voor bulkacties.',
         ],
 
-        'bulk_select_group' => [
-            'label' => 'Groep :title selecteren/deselecteren voor bulkacties.',
-        ],
-
         'search' => [
             'label' => 'Zoeken',
             'placeholder' => 'Zoeken',
-            'indicator' => 'Zoekopdracht',
         ],
 
     ],

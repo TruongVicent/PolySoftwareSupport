@@ -22,14 +22,6 @@ return [
 
     ],
 
-    'content' => [
-
-        'tab' => [
-            'label' => 'កែប្រែ',
-        ],
-
-    ],
-
     'notifications' => [
 
         'saved' => [

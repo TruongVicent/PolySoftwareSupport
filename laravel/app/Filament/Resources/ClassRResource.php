@@ -34,7 +34,8 @@ class ClassRResource extends Resource
                     ->required()
                     ->label('Tên lớp'),
                 Toggle::make('status')
-                    ->label('Trạng thái'),
+                    ->label('Trạng thái')
+                    ->inline(false),
             ]);
     }
 
@@ -43,7 +44,8 @@ class ClassRResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Lớp'),
+                    ->label('Lớp')
+                    ->searchable(),
                 ToggleColumn::make('status')
                     ->label('Trạng thái'),
             ])

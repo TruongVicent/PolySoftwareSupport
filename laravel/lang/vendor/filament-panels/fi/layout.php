@@ -6,10 +6,6 @@ return [
 
     'actions' => [
 
-        'billing' => [
-            'label' => 'Hallitse tilausta',
-        ],
-
         'logout' => [
             'label' => 'Kirjaudu ulos',
         ],
@@ -42,10 +38,6 @@ return [
 
             'light' => [
                 'label' => 'Vaalea tila',
-            ],
-
-            'system' => [
-                'label' => 'Järjestelmän tila',
             ],
 
         ],

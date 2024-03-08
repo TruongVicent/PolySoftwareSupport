@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => ':label 詳細',
+    'title' => ':label詳細',
 
     'breadcrumb' => '詳細',
 

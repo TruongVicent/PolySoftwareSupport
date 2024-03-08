@@ -34,22 +34,19 @@ class SemesterResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->unique()
+                    ->columnSpan(2)
                     ->validationMessages([
                         'unique' => 'Học kì này đã được tạo.',
                     ])
                     ->label('Tên học kì'),
                 Radio::make('is_current')
-                    ->options([
-                        '1' => 'Có',
-                        '0' => 'Không',
-                    ])
-                    ->descriptions([
-                        '1' => 'Đang hoạt động.',
-                        '0' => 'Tạm dừng hoạt động.',
-                    ])
-                    ->label('Hoạt động hiện tại'),
+                    ->label('Hoạt động hiện tại')
+                    ->boolean()
+                    ->required()
+                    ->inline(),
                 Toggle::make('status')
-                    ->label('Trạng thái'),
+                    ->label('Trạng thái')
+                    ->columnSpan(1),
             ]);
     }
 
@@ -59,7 +56,8 @@ class SemesterResource extends Resource
             ->columns([
                 TextColumn::make('name')
                     ->icon('heroicon-m-user-circle')
-                    ->label('Học kì'),
+                    ->label('Học kì')
+                    ->searchable(),
                 ToggleColumn::make('is_current')
                     ->label('Hiện tại'),
                 ToggleColumn::make('status')
@@ -70,7 +68,8 @@ class SemesterResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                ,
                 // Tables\Actions\DeleteAction::make()
             ])
             ->bulkActions([

@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Semester;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 use App\Models\User;
 use App\Models\Subject;
 use App\Models\ClassR;
-use App\Models\Semester;
+use App\Models\CalendarIncrease;
 
 class ClassSubject extends Model
 {
@@ -45,6 +48,10 @@ class ClassSubject extends Model
     public function Semester(): BelongsTo
     {
         return $this->belongsTo(Semester::class);
+    }
+    public function CalendarIncrease(): HasMany
+    {
+        return $this->HasMany(CalendarIncrease::class);
     }
 
 }
