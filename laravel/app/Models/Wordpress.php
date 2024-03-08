@@ -14,8 +14,10 @@ class Wordpress extends Model
     protected $fillable = [
         'name',
         'file',
+        'thumbnail',
         'version',
         'type',
-        'status'
+        'status',
+        'created_at'
     ];
 }
