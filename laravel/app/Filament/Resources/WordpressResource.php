@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Enums\WordpressRole;
 use App\Filament\Resources\WordpressResource\Pages;
-use App\Filament\Resources\WordpressResource\RelationManagers;
 use App\Models\Wordpress;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -15,6 +14,7 @@ use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -36,16 +36,25 @@ class WordpressResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
-                    ->label('Tên file'),
+                    ->label('Tên file')
+                    ->required(),
                 TextInput::make('version')
-                    ->label('Phiên bản'),
+                    ->label('Phiên bản')
+                    ->required(),
                 Select::make('type')
                     ->options(WordpressRole::class)
-                    ->label('Loại'),
+                    ->label('Loại')
+                    ->required(),
+                FileUpload::make('thumbnail')->columnSpan('full')
+                    ->label('Hình ảnh')
+                    ->required(),
                 FileUpload::make('file')->columnSpan('full')
-                    ->label('File'),
+                    ->label('File')
+                    ->required()
+                    ->acceptedFileTypes(['application/zip']),
                 Toggle::make('status')
-                    ->label('Trạng thái'),
+                    ->label('Trạng thái')
+                    ->required(),
             ])->columns(3);
     }
 
@@ -56,6 +65,8 @@ class WordpressResource extends Resource
                 TextColumn::make('name')
                     ->searchable()
                     ->label('Tên file'),
+                ImageColumn::make('thumbnail')
+                    ->label('Hình ảnh'),
                 TextColumn::make('version')
                     ->label('Phiên bản'),
                 TextColumn::make('type')

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -12,12 +13,19 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
+
 
 class ProjectResource extends Resource
 {
@@ -52,12 +60,32 @@ class ProjectResource extends Resource
             ]);
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                TextEntry::make('name')
+                    ->label('Tên dự án')
+                    ->columnSpanFull(),
+                TextEntry::make('ProjectType.name')
+                    ->label('Loại dự án'),
+                TextEntry::make('start_date')
+                    ->label('Đối tượng'),
+                TextEntry::make('start_time')
+                    ->label('Thời gian bắt đàu'),
+                TextEntry::make('end_date')
+                    ->label('Thời gian kết thúc'),
+
+            ]);
+
+    }
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Tên dự án'),
+                    ->label('Tên dự án')
+                    ->searchable(),
                 ImageColumn::make('banner')
                     ->label('Ảnh'),
                 TextColumn::make('ProjectType.name')
@@ -70,11 +98,45 @@ class ProjectResource extends Resource
                     ->label('Trạng thái'),
             ])
             ->filters([
-                //
+                SelectFilter::make('project_type_id')
+                    ->relationship('ProjectType', 'name')
+                    ->label('Loại dự án'),
+
+                Filter::make('start_date')
+                    ->form([
+                        DatePicker::make('published_from')->label('Từ ngày')
+                            ->placeholder(fn($state): string => 'Dec 18, ' . now()->subYear()->format('Y')),
+                        DatePicker::make('published_until')->label('Đến ngày')
+                            ->placeholder(fn($state): string => now()->format('M d, Y')),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['published_from'] ?? null,
+                                fn(Builder $query, $date): Builder => $query->whereDate('start_date', '>=', $date),
+                            )
+                            ->when(
+                                $data['published_until'] ?? null,
+                                fn(Builder $query, $date): Builder => $query->whereDate('start_date', '<=', $date),
+                            );
+                    })
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+                        if ($data['published_from'] ?? null) {
+                            $indicators['published_from'] = 'Từ ngày ' . Carbon::parse($data['published_from'])->toFormattedDateString();
+                        }
+                        if ($data['published_until'] ?? null) {
+                            $indicators['published_until'] = 'Đến ngày ' . Carbon::parse($data['published_until'])->toFormattedDateString();
+                        }
+
+                        return $indicators;
+                    }),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make()
+                Tables\Actions\DeleteAction::make(),
+
 
             ])
             ->bulkActions([
@@ -88,7 +150,6 @@ class ProjectResource extends Resource
     {
         return [
             RelationManagers\ProjectMemberRelationManager::class,
-            // ProjectMemberRelationManager::class,
         ];
     }
 

@@ -5,17 +5,15 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SubjectResource\Pages;
 use App\Filament\Resources\SubjectResource\RelationManagers;
 use App\Models\Subject;
-use Filament\Forms;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
+use Filament\Tables\Table;
 
 
 class SubjectResource extends Resource
@@ -23,8 +21,10 @@ class SubjectResource extends Resource
     protected static ?string $model = Subject::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Quản lý Lớp / Môn / Học kỳ';
 
     protected static ?string $label = 'Môn Học';
+
 
     public static function form(Form $form): Form
     {
@@ -41,9 +41,10 @@ class SubjectResource extends Resource
                 TextInput::make('description')
                     ->label('Mô tả')
                     ->required(),
-                TextInput::make('link_document')
+                Select::make('link_document')
                     ->required()
                     ->prefix('https://')
+                    ->relationship(name: 'Link', titleAttribute: 'url')
                     ->label('Link tài liệu'),
                 Toggle::make('status')
                     ->label('Trạng thái'),
@@ -91,8 +92,8 @@ class SubjectResource extends Resource
     {
         return [
             'index' => Pages\ListSubjects::route('/'),
-            // 'create' => Pages\CreateSubject::route('/create'),
-            // 'edit' => Pages\EditSubject::route('/{record}/edit'),
+            'create' => Pages\CreateSubject::route('/create'),
+            'edit' => Pages\EditSubject::route('/{record}/edit'),
         ];
     }
 }

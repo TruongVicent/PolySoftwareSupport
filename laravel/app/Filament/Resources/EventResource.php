@@ -2,29 +2,29 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\EventRole;
 use App\Filament\Resources\EventResource\Pages;
 use App\Models\Event;
 use Filament\Forms;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Infolists\Infolist;
-use Filament\Tables\Columns\ToggleColumn;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\FileUpload;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Support\Carbon;
-use Filament\Forms\Components\MarkdownEditor;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components;
+
 
 class EventResource extends Resource
 {
@@ -34,24 +34,24 @@ class EventResource extends Resource
 
     protected static ?string $label = 'Sự kiện';
 
+    protected static ?string $navigationGroup = 'Quản lý sự kiện';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                FileUpload::make('image')
-                    ->image()
-                    ->label('Ảnh')
-                    ->required()
-                    ->columnSpan(2),
-
                 TextInput::make('name')
                     ->label('Sự kiện')
                     ->required(),
 
-                TextInput::make('target_audience')
-                    ->label('Đối tượng')
+                Select::make('target_audience')
+                    ->label('Đối tượng hướng đến')
+                    ->options(EventRole::class)
                     ->required(),
-
+                Select::make('user_id')
+                    ->relationship(name: 'User', titleAttribute: 'name')
+                    ->label('Người quản lý')
+                    ->required(),
                 Select::make('event_type_id')
                     ->relationship(name: 'EventType', titleAttribute: 'name')
                     ->label('Loại sự kiện')
@@ -64,6 +64,12 @@ class EventResource extends Resource
                 DateTimePicker::make('end_time')
                     ->label('Thời gian kết thúc')
                     ->required(),
+
+                FileUpload::make('image')
+                    ->image()
+                    ->label('Ảnh')
+                    ->required()
+                    ->columnSpan(2),
 
                 MarkdownEditor::make('content')
                     ->label('Nội dung')
@@ -81,9 +87,9 @@ class EventResource extends Resource
         return $infolist
             ->schema([
                 TextEntry::make('name')
-                    ->label('Sự kiện')
-                    ->columnSpanFull(),
-
+                    ->label('Sự kiện'),
+                TextEntry::make('User.name')
+                    ->label('Người quản lý'),
                 TextEntry::make('EventType.name')
                     ->label('Loại sự kiện'),
 

@@ -1,10 +1,10 @@
 <?php
 
+use App\Models\EventType;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\EventType;
-
 
 return new class extends Migration {
     /**
@@ -16,7 +16,8 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->text('content');
+            $table->text('content')->nullable();
+            $table->foreignIdFor(User::class);
             $table->foreignIdFor(EventType::class);
             $table->dateTime('start_time');
             $table->dateTime('end_time');

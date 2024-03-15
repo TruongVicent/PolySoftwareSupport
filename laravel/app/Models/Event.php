@@ -16,18 +16,22 @@ class Event extends Model
         'name',
         'image',
         'content',
+        'user_id',
         'event_type_id',
         'start_time',
         'end_time',
         'target_audience',
         'status',
-        'created_at',
-        'updated_at'
     ];
 
     public function EventType(): BelongsTo
     {
         return $this->belongsTo(EventType::class);
+    }
+
+    public function User(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

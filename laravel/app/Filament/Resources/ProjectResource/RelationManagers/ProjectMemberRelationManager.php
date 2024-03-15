@@ -24,10 +24,12 @@ class ProjectMemberRelationManager extends RelationManager
 
                 Select::make('user_id')
                     ->required()
-                    ->relationship(name: 'User', titleAttribute: 'name'),
+                    ->relationship(name: 'User', titleAttribute: 'name')
+                    ->label('Thành viên'),
                 Select::make('role')
                     ->required()
-                    ->options(ProjectRole::class),
+                    ->options(ProjectRole::class)
+                    ->label('Vai trò'),
                 Toggle::make('status')
                     ->required(),
             ]);
@@ -38,9 +40,12 @@ class ProjectMemberRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('user_id')
             ->columns([
-                TextColumn::make('User.name'),
-                TextColumn::make('Project.name'),
-                TextColumn::make('role'),
+                TextColumn::make('User.name')
+                    ->label('Thành viên'),
+                TextColumn::make('Project.name')
+                    ->label('Dự án'),
+                TextColumn::make('role')
+                    ->label('Vai trò'),
                 ToggleColumn::make('status')
                     ->label('Trạng thái')
 

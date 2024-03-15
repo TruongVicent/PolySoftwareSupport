@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\RoomsResource\Pages;
 use App\Filament\Resources\RoomsResource\RelationManagers;
 use App\Models\Room;
-use Filament\Forms;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -17,15 +16,16 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class RoomResource extends Resource
 {
     protected static ?string $model = Room::class;
-    protected static ?string $label = 'Quản lí phòng';
+    protected static ?string $label = 'Phòng';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = 'Quản lý Hỗ trợ tăng cường';
+
 
     public static function form(Form $form): Form
     {

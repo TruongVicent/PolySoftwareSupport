@@ -4,33 +4,24 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\LinkResource\Pages;
 use App\Models\Link;
+use App\Models\Semester;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ToggleColumn;
-use Filament\Tables\Table;
-use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\FileUpload;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Forms\Components\Select;
 use Filament\Tables\Filters\SelectFilter;
-use Filament\Tables\Columns\ColorColumn;
-use Filament\Support\Enums\FontWeight;
-use Filament\Tables\Columns\Layout\Panel;
-use Filament\Tables\Columns\Layout\Stack;
-use Filament\Tables\Columns\Layout\Split;
-use Filament\Infolists\Components\ColorEntry;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Infolist;
-use Filament\Notifications\Notification;
+use Filament\Tables\Table;
+
 
 class LinkResource extends Resource
 {
     protected static ?string $model = Link::class;
     protected static ?string $navigationIcon = 'heroicon-o-link';
 
+    protected static ?string $navigationGroup = 'Quản lý Lớp / Môn / Học kỳ';
 
     protected static ?string $label = 'Quản lý link';
 
@@ -51,6 +42,10 @@ class LinkResource extends Resource
                     ->label('Học kì')
                     ->relationship(name: 'semester', titleAttribute: 'name')
                     ->required()
+                    ->default(function () {
+                        $currentSemester = Semester::where('is_current', true)->first();
+                        return $currentSemester ? $currentSemester->id : null;
+                    })
                     ->filled()
                     ->columnSpan(1),
             ]);

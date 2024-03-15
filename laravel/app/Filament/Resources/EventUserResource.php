@@ -20,8 +20,10 @@ class EventUserResource extends Resource
     protected static ?string $model = EventUser::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Quản lý sự kiện';
 
     protected static ?string $label = 'Tham gia sự kiện';
+
 
     public static function form(Form $form): Form
     {

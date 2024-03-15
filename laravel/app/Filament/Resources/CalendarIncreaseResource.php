@@ -2,12 +2,15 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\IpAddress;
+use App\Enums\TimeLearn;
 use App\Filament\Resources\CalendarIncreaseResource\Pages;
 use App\Models\CalendarIncrease;
+use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Infolists\Components\TextEntry;
@@ -18,17 +21,16 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Closure;
 use Illuminate\Support\Carbon;
-
 
 class CalendarIncreaseResource extends Resource
 {
     protected static ?string $model = CalendarIncrease::class;
-    protected static ?string $label = 'Quản lí lịch tăng cường';
+    protected static ?string $label = 'Lịch tăng cường';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = 'Quản lý Hỗ trợ tăng cường';
 
     public static function form(Form $form): Form
     {
@@ -50,7 +52,8 @@ class CalendarIncreaseResource extends Resource
                             if ($check != NULL) {
                                 $fail("Ca này đã trùng lịch với phòng khác ca khác");
                             }
-                        }])
+                        }
+                    ])
                     ->label('Phòng học'),
                 Select::make('study_id')
                     ->required()
@@ -64,7 +67,8 @@ class CalendarIncreaseResource extends Resource
                             if ($check != NULL) {
                                 $fail("Ca này đã trùng lịch với phòng khác ca khác");
                             }
-                        }])
+                        }
+                    ])
                     ->label('Ca học'),
                 DatePicker::make('date')
                     ->label('Ngày học')
@@ -77,7 +81,8 @@ class CalendarIncreaseResource extends Resource
                             if ($check != NULL) {
                                 $fail("Ca này đã trùng lịch với phòng khác ca khác");
                             }
-                        }])
+                        }
+                    ])
                     ->required(),
             ]);
     }
@@ -96,6 +101,8 @@ class CalendarIncreaseResource extends Resource
                     ->label('Ca học'),
                 TextEntry::make('date')
                     ->label('Ngày học'),
+                TextEntry::make('file_present')
+                    ->label('File đã upload'),
             ]);
     }
     public static function table(Table $table): Table
@@ -117,6 +124,7 @@ class CalendarIncreaseResource extends Resource
                     ->searchable(),
                 TextColumn::make('date')
                     ->label('Ngày học'),
+
             ])
             ->filters([
                 Tables\Filters\Filter::make('date')
@@ -158,9 +166,56 @@ class CalendarIncreaseResource extends Resource
                     ->relationship('Study', 'name'),
             ])
             ->actions([
+                Tables\Actions\Action::make('calendarincrease')
+                    ->label('Điểm danh')
+                    ->form([
+                        FileUpload::make('file_present')
+                            ->label('Tải file điểm danh lên (excel)')
+                    ])
+                    ->action(function (CalendarIncrease $CalendarIncrease, $data) {
+                        $CalendarIncrease->save();
+                        $filePresent = $data['file_present'];
+
+                        // Gán giá trị cho model và lưu
+                        $CalendarIncrease->file_present = $filePresent;
+                        $CalendarIncrease->save();
+
+                    })
+                    ->hidden(
+                        function (CalendarIncrease $calendarIncrease) {
+                            $enumIp = IpAddress::cases();
+                            $requestIp = request()->ip();
+
+                            $time = TimeLearn::cases();
+                            $current_time = Carbon::now('Asia/Ho_Chi_Minh');
+                            $hour = $current_time->format('H:i');
+
+                            foreach ($time as $t) {
+                                // Cộng thêm 2 tiếng vào khung giờ
+                                $date = Carbon::parse($t->value)->addMinutes(120);
+                                $endTime = $date->format('H:i');
+                                // So sánh khung giờ hiện tại với khung giờ kết thúc
+                                if ($hour >= $t->value && $hour <= $endTime) {
+                                    // Hiển thị hidden
+                                    return false;
+                                }
+                            }
+                            if (now()->diffInMinutes($endTime) >= 120) {
+                                // Ẩn hidden
+                                return true;
+                            }
+                            //  if (!in_array($requestIp, $enumIp)) {
+                            //     return false;
+                            // }
+                            // return true;
+                            /// lấy giờ của ca
+
+                        }
+                    )
+                    ->color('success'),
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make()
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -168,6 +223,7 @@ class CalendarIncreaseResource extends Resource
                 ]),
             ]);
     }
+
 
     public static function getRelations(): array
     {
@@ -182,6 +238,7 @@ class CalendarIncreaseResource extends Resource
             'index' => Pages\ListCalendarIncreases::route('/'),
             'create' => Pages\CreateCalendarIncrease::route('/create'),
             'edit' => Pages\EditCalendarIncrease::route('/{record}/edit'),
+
         ];
     }
 }

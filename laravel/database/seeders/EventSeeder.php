@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 
 class EventSeeder extends Seeder
@@ -19,6 +18,7 @@ class EventSeeder extends Seeder
             'name' => 'Workshop Database basic to advanced',
             'image' => 'htmt.jpg',
             'content' => 'Buổi hướng dẫn sinh viên quản lý database hiệu quả',
+            'user_id' => '1',
             'event_type_id' => '1',
             'start_time' => Carbon::now(),
             'end_time' => Carbon::now(),

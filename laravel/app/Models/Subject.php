@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Semester;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ClassSubject;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
 
 class Subject extends Model
 {
@@ -29,6 +26,11 @@ class Subject extends Model
     public function Semester(): BelongsTo
     {
         return $this->belongsTo(Semester::class);
+    }
+
+    public function Link(): BelongsTo
+    {
+        return $this->belongsTo(Link::class);
     }
     public function ClassSubject(): HasMany
     {

@@ -5,18 +5,15 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SemesterResource\Pages;
 use App\Filament\Resources\SemesterResource\RelationManagers;
 use App\Models\Semester;
-use Filament\Forms;
+use Filament\Forms\Components\Radio;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Radio;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Table;
 
 
 class SemesterResource extends Resource
@@ -24,8 +21,10 @@ class SemesterResource extends Resource
     protected static ?string $model = Semester::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document';
+    protected static ?string $navigationGroup = 'Quản lý Lớp / Môn / Học kỳ';
 
     protected static ?string $label = 'Học kì/ Năm học/ Block';
+
 
     public static function form(Form $form): Form
     {
@@ -90,8 +89,8 @@ class SemesterResource extends Resource
     {
         return [
             'index' => Pages\ListSemesters::route('/'),
-            // 'create' => Pages\CreateSemester::route('/create'),
-            // 'edit' => Pages\EditSemester::route('/{record}/edit'),
+            'create' => Pages\CreateSemester::route('/create'),
+            'edit' => Pages\EditSemester::route('/{record}/edit'),
         ];
     }
 }

@@ -20,7 +20,7 @@ class ProjectMemberResource extends Resource
 {
     protected static ?string $model = ProjectMember::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $label = 'Thành viên dự án';
 
@@ -57,13 +57,14 @@ class ProjectMemberResource extends Resource
                 ToggleColumn::make('status')
                     ->label('Trạng thái')
 
-
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

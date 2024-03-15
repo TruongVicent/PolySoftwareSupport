@@ -4,24 +4,26 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ClassSubjectResource\Pages;
 use App\Models\ClassSubject;
+use App\Models\Semester;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
-use Filament\Forms\Components\Select;
 use Filament\Tables\Filters\SelectFilter;
-use Filament\Forms\Components\Toggle;
-use App\Models\Semester;
+use Filament\Tables\Table;
 
 class ClassSubjectResource extends Resource
 {
     protected static ?string $model = ClassSubject::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Quản lý Lớp / Môn / Học kỳ';
 
     protected static ?string $label = 'Lớp môn';
+
 
     public static function form(Form $form): Form
     {
@@ -102,8 +104,8 @@ class ClassSubjectResource extends Resource
     {
         return [
             'index' => Pages\ListClassSubjects::route('/'),
-            // 'create' => Pages\CreateClassSubject::route('/create'),
-            // 'edit' => Pages\EditClassSubject::route('/{record}/edit'),
+            'create' => Pages\CreateClassSubject::route('/create'),
+            'edit' => Pages\EditClassSubject::route('/{record}/edit'),
         ];
     }
 }
