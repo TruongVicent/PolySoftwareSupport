@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('file');
-            $table->string('thumbnail');
             $table->string('version', 10);
             $table->string('type');
             $table->tinyInteger('status')->default(1);

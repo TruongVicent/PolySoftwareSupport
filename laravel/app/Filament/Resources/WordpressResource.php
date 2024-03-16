@@ -47,6 +47,8 @@ class WordpressResource extends Resource
                     ->required(),
                 FileUpload::make('thumbnail')->columnSpan('full')
                     ->label('Hình ảnh')
+                    ->image()
+                    ->imageEditor()
                     ->required(),
                 FileUpload::make('file')->columnSpan('full')
                     ->label('File')

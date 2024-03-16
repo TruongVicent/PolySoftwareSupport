@@ -2,16 +2,9 @@
 
 namespace Database\Seeders;
 
-<<<<<<< HEAD
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-
-
-=======
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\ProjectType;
->>>>>>> origin/Toan
+use Illuminate\Database\Seeder;
+
 class ProjectTypeSeeder extends Seeder
 {
     /**
@@ -19,14 +12,6 @@ class ProjectTypeSeeder extends Seeder
      */
     public function run(): void
     {
-<<<<<<< HEAD
-        DB::table('project_types')->insert([
-            'name' => 'Web app',
-            'description' => 'Các web quản lý',
-            'status' => '1'
-        ]);
-
-=======
         $projectTypes = [
             [
                 'name' => 'Dự án 1',
@@ -69,6 +54,5 @@ class ProjectTypeSeeder extends Seeder
 
         // Thêm dữ liệu vào bảng project_types
         ProjectType::insert($projectTypes);
->>>>>>> origin/Toan
     }
 }

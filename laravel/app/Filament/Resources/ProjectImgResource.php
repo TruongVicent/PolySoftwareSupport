@@ -27,7 +27,8 @@ class ProjectImgResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $label = 'Quản lý Ảnh';
-    protected static ?string $navigationGroup = 'Quản lý sự kiện';
+    protected static ?string $navigationGroup = 'Quản lý dự án';
+
 
 
 
@@ -40,7 +41,7 @@ class ProjectImgResource extends Resource
                     ->image()
                     ->imageEditor()
                     ->required()
-                    ->columnSpan(2),
+                    ->columnSpan('full'),
                 TextInput::make('name')
                     ->label('Tên ảnh')
                     ->required(),
@@ -54,7 +55,7 @@ class ProjectImgResource extends Resource
                 Toggle::make('status')
                     ->label('Trạng thái')
                     ->inline(false),
-            ]);
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
