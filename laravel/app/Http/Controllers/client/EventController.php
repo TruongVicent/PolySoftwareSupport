@@ -14,7 +14,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $event = Event::all();
+        $event = Event::where('status', 1)->get();
         return view('pages.event', ['events' => $event]);
     }
 
@@ -62,6 +62,17 @@ class EventController extends Controller
         }
     }
 
+    public function search(Request $request)
+    {
+        // Lấy giá trị tìm kiếm từ yêu cầu Ajax
+        $searchValue = strtolower($request->input('search'));
+
+        // Thực hiện truy vấn tìm kiếm trong cơ sở dữ liệu
+        $event = Event::where('name', 'event_type_id', "%{$searchValue}%")->get();
+
+        // Trả về dữ liệu dưới dạng JSON
+        return response()->json($event);
+    }
 
 }
 
