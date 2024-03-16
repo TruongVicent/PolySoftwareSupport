@@ -1,0 +1,479 @@
+// slogan
+.slogan {
+    position: relative;
+    margin-top: -25px;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+// 4 box icon
+.box-text {
+    margin: 70px 0;
+
+    .title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #f26f24;
+        line-height: 1.2;
+    }
+}
+
+.layout-i {
+    margin-top: 70px;
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-body {
+        margin: 10px 1px;
+
+        .card-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .card-text {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: montserrat, sans-serif;
+            padding: 30px 0;
+            text-align: center;
+
+            color: white;
+        }
+    }
+
+    .primary {
+        background-color: #0054a6;
+    }
+
+    .organ {
+        background-color: #f26f24;
+    }
+
+    .success {
+        background-color: #00a651;
+    }
+
+    .purpel {
+        background-color: #662d91;
+    }
+}
+
+// gird layout1
+.section-grid {
+    // background-color: white;
+    width: 100%;
+    height: 100%;
+
+    .nn {
+        background-image: url(../image/ngon-ngu.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+    }
+
+    .tt {
+        background-image: url(../image/khoi-nganh-cong-nghe-thong-tin-cntt.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .pt {
+        background-image: url(../image/truyen-thong-da-phuong-tien.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .kd {
+        background-image: url(../image/nhom-nganh-kinh-te-quan-tri-kinh-doanh-1.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .ks {
+        background-image: url(../image/du-lich-khach-san.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .dh {
+        background-image: url(../image/thiet-ke-ho-hoa.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .item {
+        flex-basis: 25%;
+        // height: 100%;
+        position: relative;
+
+
+        .card {
+            border: none;
+            height: 100%;
+
+            .card-body {
+                font-size: 15px;
+                font-family: Arial, Helvetica, sans-serif;
+
+                .card-title {
+                    display: flex;
+                    color: #f26f24;
+                    font-size: 20px;
+                    font-weight: 700;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+
+                .card-text {
+                    padding: 0 0;
+                    text-align: justify;
+                }
+            }
+        }
+
+        &:first-child {
+            flex-basis: 50%;
+
+            @include mobile() {
+                flex-basis: 100%;
+            }
+        }
+
+        @include mobile() {
+            flex-basis: 100%;
+        }
+
+        figcaption {
+            position: relative;
+            bottom: 15px;
+            visibility: hidden;
+
+            .text-item {
+                font-weight: 700;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 22px;
+                visibility: visible;
+                transition: transform 0.3s ease;
+                transform: translateY(100%);
+                color: #f26f24;
+                top: 0;
+
+                &:hover {
+                    color: white;
+                    // text-decoration: underline;
+                }
+            }
+
+            .ul-grid {
+                font-size: 17px;
+                // display: none;
+                position: absolute;
+                left: 0;
+
+                /* Chỉnh màu nền tùy ý */
+                padding: 5px;
+                z-index: 1;
+                transition: transform 0.3s ease;
+                transform: translateY(100%);
+
+                li {
+                    display: flex;
+                    list-style: none;
+                    padding: 10px 0;
+
+                    a {
+                        // width: 80%;
+                        color: #f26f24;
+
+                        font-weight: 700;
+                        font-family: 'Times New Roman', Times, serif;
+                        // color: white;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: white;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            h4 {
+                top: -80px;
+                transform: translateY(0%);
+
+            }
+
+            figcaption {
+                position: relative;
+                padding: 0;
+                margin: 0;
+
+            }
+
+            .ul-grid {
+                visibility: visible;
+                display: block;
+                transform: translateY(0%);
+            }
+        }
+
+    }
+}
+
+//end gird layout1
+
+//layout youtobe
+.content-youtobe {
+    .form-youtobe {
+        padding-top: 100px;
+
+        .box-content {
+            padding: 30px 0;
+
+            .box-title {
+                font-family: montserrat, sans-serif;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                color: #f26f24;
+
+                h2 {
+                    padding: 40px;
+                    font-size: 20px;
+                    font-family: montserrat, sans-serif;
+                    font-weight: 400 !important;
+                    text-align: center;
+
+                    strong {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+            .button {
+                padding: 50px 0;
+                display: flex;
+                justify-content: center;
+
+            }
+
+            .organ {
+                font-family: montserrat, sans-serif;
+                background-color: #f26f24;
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                }
+            }
+
+        }
+    }
+}
+
+//// event layout home
+.home-event-layout {
+    @media (max-width: 768px) {
+
+        /* Định dạng cho màn hình có chiều rộng tối đa 768px */
+        .home-event-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-img {
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+
+}
+
+/// end event layout home
+
+// img project
+
+#slider {
+    position: relative;
+    width: 50%;
+    height: 30vw;
+    margin: 80px auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    perspective: 1400px;
+    transform-style: preserve-3d;
+
+}
+
+input[type=radio] {
+    position: relative;
+    top: 108%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 0 15px 0 0;
+    opacity: 0.4;
+    transform: translateX(-83px);
+    cursor: pointer;
+}
+
+
+input[type=radio]:nth-child(5) {
+    margin-right: 0px;
+}
+
+input[type=radio]:checked {
+    opacity: 1;
+}
+
+
+#slider label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 400ms ease;
+}
+
+#slide1 {
+    /* background-image: url("https://caodang.fpt.edu.vn/wp-content/uploads/2024/01/1900x750-2.png?__cf_chl_tk=VSFuc5eV3DmKX0btyAZ0vsQgcAOn98vzBfQZVKCNiXA-1709800810-0.0.1.1-1386https://via.placeholder.com/300"); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#slide2 {
+    /* background-image: url("https://photo-cms-giaoduc.epicdn.me/w1000/Uploaded/2024/juznus/2022_03_25/gdvn-pho-thong-cao-dang-fpt-234-6909-8085.jpg"); */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#slide3 {
+    background-image: url("https://i.ytimg.com/vi/hDzkUdatrcI/maxresdefault.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#slide4 {
+    background-image: url('https://caodang.fpt.edu.vn/wp-content/uploads/2024/01/1200x628-FPT-Polytechnic-Hoc-Bong-1536x806.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#slide5 {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKyz2fW50rJWgjeuSvIyg1R4WdrP3VaEdlPg&usqp=CAUhttps://phothongcaodang.fpt.edu.vn/wp-content/uploads/MEntor-doi-tuyen-vovinam-35.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+/* Slider Functionality */
+
+/* Active Slide */
+#s1:checked ~ #slide1,
+#s2:checked ~ #slide2,
+#s3:checked ~ #slide3,
+#s4:checked ~ #slide4,
+#s5:checked ~ #slide5 {
+    box-shadow: 0 13px 26px rgba(0, 0, 0, 0.3), 0 12px 6px rgba(0, 0, 0, 0.2);
+    transform: translate3d(0%, 0, 0px);
+}
+
+/* Next Slide */
+#s1:checked ~ #slide2,
+#s2:checked ~ #slide3,
+#s3:checked ~ #slide4,
+#s4:checked ~ #slide5,
+#s5:checked ~ #slide1 {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+    transform: translate3d(15%, 0, -100px);
+}
+
+
+/* Next to Next Slide */
+#s1:checked ~ #slide3,
+#s2:checked ~ #slide4,
+#s3:checked ~ #slide5,
+#s4:checked ~ #slide1,
+#s5:checked ~ #slide2 {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    transform: translate3d(30%, 0, -250px);
+}
+
+/* Previous to Previous Slide */
+#s1:checked ~ #slide4,
+#s2:checked ~ #slide5,
+#s3:checked ~ #slide1,
+#s4:checked ~ #slide2,
+#s5:checked ~ #slide3 {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    transform: translate3d(-30%, 0, -250px);
+}
+
+/* Previous Slide */
+#s1:checked ~ #slide5,
+#s2:checked ~ #slide1,
+#s3:checked ~ #slide2,
+#s4:checked ~ #slide3,
+#s5:checked ~ #slide4 {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+    transform: translate3d(-15%, 0, -100px);
+}
+
+.slide img {
+    /* width: 680px;
+    height: 415px; */
+    display: flex;
+    justify-content: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 400ms ease;
+}
+
+// end project
