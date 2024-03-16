@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\client\EventController;
 use App\Http\Controllers\client\GoogleController;
+use App\Http\Controllers\client\Project;
 use App\Http\Controllers\client\ProjectHome;
+use App\Http\Controllers\client\Wordpress;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,12 +23,20 @@ use Illuminate\Support\Facades\Route;
 
 //Home
 Route::prefix('/')->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [Controller::class, 'index']);
+    // layout bodyHome
     Route::get('/', [ProjectHome::class, 'index']);
-    // Route::get('/', [a::class, 'index']);
+    // pages project
+    Route::get('/project', [Project::class, 'index'])->name('project');
 
+    // event
+    Route::get('/event', [EventController::class, 'index'])->name('event');
+    Route::post('/event/register', [EventController::class, 'register'])->name('event.register');
+    Route::get('/search-event', [EventController::class, 'search'])->name('search');
+    // wordpress
+    Route::get('/wordpress', [Wordpress::class, 'index'])->name('wordpress');
+    Route::get('/download/{file}', [Wordpress::class, 'downloadFile'])->name('download');
+    Route::get('/search-wordpress', [Wordpress::class, 'search'])->name('search');
 });
 
 //Dashboard
@@ -42,9 +53,5 @@ Route::middleware('auth')->group(function () {
 /// login google
 Route::get('auth/google', [GoogleController::class, 'googlepage']);
 Route::get('auth/google/callback', [GoogleController::class, 'googlecallback']);
-
-// event
-Route::get('/event', [EventController::class, 'index']);
-Route::post('/event/register', [EventController::class, 'register'])->name('event.register');
 
 require __DIR__ . '/auth.php';
